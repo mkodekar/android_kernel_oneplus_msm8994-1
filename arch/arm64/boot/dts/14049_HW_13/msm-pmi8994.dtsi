@@ -144,28 +144,28 @@
 			};
 
 		};
-//#ifdef VENDOR_EDIT /* shankai@BSP.driver, 2015/3/25, add for the button-backlight  */		
-			qcom,leds@a300 { 		
-				compatible = "qcom,leds-qpnp"; 		
+//#ifdef VENDOR_EDIT /* shankai@BSP.driver, 2015/3/25, add for the button-backlight  */
+			qcom,leds@a300 {
+				compatible = "qcom,leds-qpnp";
 				status = "okay";
 				reg=<0xa300 0x100>;
 				qcom,led_mpp_3 {
-					label = "mpp"; 
-					linux,name = "button-backlight"; 
-					linux,default-trigger = "none"; 			
-				qcom,default-state = "off"; 
-				qcom,max-current = <40>; 	
-				qcom,current-setting = <5>; 
-				qcom,id = <6>; 
-				qcom,mode = "manual"; 
-				qcom,source-sel = <1>; 	
-				qcom,mode-ctrl = <0x60>; 	
+					label = "mpp";
+					linux,name = "button-backlight";
+					linux,default-trigger = "none";
+				qcom,default-state = "off";
+				qcom,max-current = <40>;
+				qcom,current-setting = <5>;
+				qcom,id = <6>;
+				qcom,mode = "manual";
+				qcom,source-sel = <1>;
+				qcom,mode-ctrl = <0x60>;
 				};
 			};
 //#endif /*VENDOR_EDIT*/
 
-			
-		
+
+
 		bcl@4200 {
 			compatible = "qcom,msm-bcl";
 			reg = <0x4200 0xFF 0x88E 0x2>;
@@ -240,7 +240,6 @@
 			//qcom,autoadjust-vfloat;
 			qcom,charge-unknown-battery;
 			qcom,pmic-revid = <&pmi8994_revid>;
-
 			qcom,chgr@1000 {
 				reg = <0x1000 0x100>;
 				interrupts =	<0x2 0x10 0x0>,
@@ -575,6 +574,8 @@
 			qcom,en-cabc;//guozhimig@oem add 2015-04-02 for en cabc
 		};
 
+//#ifdef VENDOR_EDIT	// shankai@bsp, 2015-4-4  do not use it  ,comment it.
+//shankai@bsp, 2015-5-28  now we use it
 		pmi8994_haptics: qcom,haptic@c000 {
 			status = "okay";
 			compatible = "qcom,qpnp-haptic";
@@ -599,6 +600,7 @@
 			qcom,wave-samp-rep-cnt = <1>;
 		};
 
+//#endif
 		qcom,leds@d000 {
 			qcom,rgb-sync;
 			compatible = "qcom,leds-qpnp";
